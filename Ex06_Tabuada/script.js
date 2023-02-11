@@ -9,9 +9,7 @@ btn.addEventListener("click", () =>{
         console.log(resultado)
 
         const elemento = document.createElement("li")
-
         const text = document.createTextNode(`${num.value} X ${i} = ${resultado}`)
-
         elemento.appendChild(text)
         document.querySelector("#res").appendChild(elemento)
         
