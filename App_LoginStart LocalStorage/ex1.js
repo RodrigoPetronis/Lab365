@@ -20,6 +20,9 @@ const showHide = document.querySelector("#show")
 
 const clear = document.querySelector("#clear")
 
+const btnImg = document.querySelector("#btnImg")
+const imgPerfil = document.querySelector("#imgPerfil")
+
 //Evento para usar ou não usuario e senha do localStorage
 showHide.addEventListener("click", () => {
     if (user.value === "") {
@@ -61,6 +64,9 @@ clear.addEventListener("click", () => {
     console.log("Teste clear")
 })
 
+/* btnImg.addEventListener("click", ()=>{
+    location.search = 
+}) */
 
 
 
