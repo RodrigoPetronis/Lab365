@@ -20,8 +20,7 @@ const showHide = document.querySelector("#show")
 
 const clear = document.querySelector("#clear")
 
-const btnImg = document.querySelector("#btnImg")
-const imgPerfil = document.querySelector("#imgPerfil")
+
 
 //Evento para usar ou não usuario e senha do localStorage
 showHide.addEventListener("click", () => {
@@ -64,9 +63,35 @@ clear.addEventListener("click", () => {
     console.log("Teste clear")
 })
 
-/* btnImg.addEventListener("click", ()=>{
-    location.search = 
-}) */
+const fileInput = document.querySelector("#inputImg")
+const profileImage = document.querySelector("#imgPerfil")
+const changePhoto = document.querySelector("#changeProfile")
+
+profileImage.addEventListener("click", () => {
+
+fileInput.click()
+
+})
+
+changePhoto.addEventListener("click", function () {
+    
+
+        let reader = new FileReader(); //instancia o objeto FileReader que é necessário para o upload.
+
+        reader.readAsDataURL(fileInput.files[0]); // Pega o arquivo armazenado pelo input e transforma em URL
+
+        reader.onload = function () {
+            profileImage.src = reader.result; //Faz o carregamento e Atribui o resultado do reader no profileImage(IMG)
+        
+    };
+
+
+})
+
+
+
+
+
 
 
 

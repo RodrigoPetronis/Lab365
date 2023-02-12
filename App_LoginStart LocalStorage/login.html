@@ -11,9 +11,17 @@
 
 <body style="display:flex; flex-direction: column; align-items: center;">
 
-    <div  style="background-color: blueviolet; min-width: 300px; display:flex; flex-direction: column; justify-content: center; align-items: center; border-radius: 15px;">
-        <img id="imgPerfil" src="./pikachu.png" alt="pikachu" style="border-radius: 50%; max-width: 100px; margin-top: 20px;">
-        <button id="btnImg" style="background-color: transparent;">Mudar imagem</button>
+    <div
+        style="background-color: blueviolet; min-width: 300px; display:flex; flex-direction: column; justify-content: center; align-items: center; border-radius: 15px;">
+        
+            <input id="inputImg" type="file" style="display: none;"></input>
+            <img id="imgPerfil" src="./squirtle.jpeg" alt="pikachu"
+                style="border-radius: 50%; max-width: 100px; margin-top: 20px;">
+        
+
+        <!--<input id="inputImg" type="file" style="background-color:blueviolet; max-width: 50px;"></input>-->
+        <button type="button" onclick="changePhoto()" id="changeProfile">Change profile pic</button>
+
         <h3>Tela de Login</h3>
         <input id="user" type="text" style="max-width: 300px;border-radius: 15px; margin-top: 5px;">
         <input id="password" type="password" style="max-width: 300px;border-radius: 15px;margin-top: 5px;">
@@ -24,7 +32,7 @@
     </div>
     <div style="margin-left: 200px;">
         <input id="show" type="checkbox"> <span>Mostrar usuario e senha do localStorage</span><br>
-    
+
         <button id="clear" style="margin-top: 5px; color: brown;">Apagar dados do localStorage</button>
     </div>
 
