@@ -40,6 +40,8 @@ login.addEventListener("click", () => {
 
     if (user.value !== localStorage.user | password.value !== localStorage.password) {
         alert("Senha Incorreta!")
+    } else if (user.value == "" | password.value == "") {
+        alert("Digite uma senha valida ou clique em Criar Senha!")
     } else {
         location.href = "./logout.html"
     }
@@ -47,12 +49,16 @@ login.addEventListener("click", () => {
 
 //Evento na tela de cadastro de senha(Guarda a senha no localStorage para utliizar no login.html)
 function cadastro() {
+    if (createUser.value === "" | createPassword === "") {
+        alert("O usuário e senha não podem estar vazios")
+    } else {
+        localStorage.user = createUser.value
+        localStorage.password = createPassword.value
+        location.href = "./login.html"
 
-    localStorage.user = createUser.value
-    localStorage.password = createPassword.value
-    location.href = "./login.html"
+        alert("Senha cadastrada com sucesso!")
+    }
 
-    alert("Senha cadastrada com sucesso!")
 }
 
 //Evento para limpar o localStorage
@@ -65,29 +71,38 @@ clear.addEventListener("click", () => {
 
 const fileInput = document.querySelector("#inputImg")
 const profileImage = document.querySelector("#imgPerfil")
-const changePhoto = document.querySelector("#changeProfile")
+const changePhoto = document.querySelector("#btnChangeImg")
 
 profileImage.addEventListener("click", () => {
 
-fileInput.click()
-
-})
-
-changePhoto.addEventListener("click", function () {
-    
-
-        let reader = new FileReader(); //instancia o objeto FileReader que é necessário para o upload.
-
-        reader.readAsDataURL(fileInput.files[0]); // Pega o arquivo armazenado pelo input e transforma em URL
-
-        reader.onload = function () {
-            profileImage.src = reader.result; //Faz o carregamento e Atribui o resultado do reader no profileImage(IMG)
-        
-    };
 
 
 })
 
+
+
+profileImage.addEventListener("click", function () {
+
+    fileInput.click()
+    changePhoto.removeAttribute("hidden", "hidden")
+})
+
+
+
+changePhoto.addEventListener("click", () => {
+
+    let reader = new FileReader(); //instancia o objeto FileReader que é necessário para o upload.
+
+    reader.readAsDataURL(fileInput.files[0]); // Pega o arquivo armazenado pelo input e transforma em URL
+
+    reader.onload = function () {
+        profileImage.src = reader.result; //Faz o carregamento e Atribui o resultado do reader no profileImage(IMG)
+
+    }
+
+    changePhoto.setAttribute("hidden", "hidden")
+
+})
 
 
 

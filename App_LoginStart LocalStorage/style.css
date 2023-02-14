@@ -1,0 +1,35 @@
+body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    display:flex;
+    flex-direction: column; 
+    align-items: center;
+    background-color: rgb(175, 235, 215);
+    margin:100px;
+}
+
+#containerMain{
+    background-color: blueviolet; 
+    min-width: 300px; display:flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    border-radius: 15px;
+    padding-top: 20px;
+}
+
+img{
+ 
+    border-radius: 50%; 
+    max-width: 100px; 
+    margin: 10px;
+}
+
+#btnChangeImg{
+    background-color: transparent;
+    border-radius: 10px;
+
+}
+
+#footer{
+    margin-top: 10px;
+}
