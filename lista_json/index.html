@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Busca UserName</title>
+    <style>
+    
+        input{
+            max-width: 300px;
+            border-radius: 10px;
+        }
+        #btnSearch{
+            max-width: 100px;
+            margin: 10px;
+            background-color: black;
+            border-radius: 15px;
+            color: white;
+        }
+        .container{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background-color: gray;
+            max-width: 500px;
+            align-items: center;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <h2>Verificando User Name em uma lista de Objetos</h2>
+        <input id="inputUserName" type="text">
+        <button id="btnSearch" type="button">Pesquisar</button>
+        <p id="res"></p>
+        <ul id="lista">
+
+        </ul>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

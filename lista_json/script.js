@@ -1,0 +1,121 @@
+/* Crie uma lista com os dados que estão em anexo.
+Utilizando as funções de array, busque na lista um usuário por seu username e imprima em tela.
+*/
+
+
+const users = [{
+    "name": "Scenic Stream",
+    "username": "Eladio66",
+    "rating": 0.9,
+    "favorites": 2,
+    "visits": 10,
+    "difficulty": 3,
+    "terrain": 4,
+    "size": "big",
+    "created": "September 15, 2021",
+    "updated": "November 25, 2022",
+    "coords": "30.0795 111.6412"
+}, {
+    "name": "Indigo Shady Stream",
+    "username": "Marian_Volkman10",
+    "rating": 2.8,
+    "favorites": 42,
+    "visits": 504,
+    "difficulty": 3,
+    "terrain": 4,
+    "size": "mini",
+    "created": "December 21, 2022",
+    "updated": "February 7, 2023",
+    "coords": "40.4485 -76.4953"
+}, {
+    "name": "Historic Trail",
+    "username": "Tabitha_Bosco",
+    "rating": 3.5,
+    "favorites": 21,
+    "visits": 84,
+    "difficulty": 3,
+    "terrain": 3,
+    "size": "mini",
+    "created": "August 26, 2022",
+    "updated": "November 2, 2022",
+    "coords": "44.4780 10.7721"
+}, {
+    "name": "Old Footpath",
+    "username": "Ford50",
+    "rating": 3.8,
+    "favorites": 23,
+    "visits": 322,
+    "difficulty": 1,
+    "terrain": 1,
+    "size": "small",
+    "created": "December 10, 2021",
+    "updated": "July 27, 2022",
+    "coords": "15.3748 -25.0323"
+},
+{
+    "name": "Viovar Historic Route",
+    "username": "Soledad_Olson",
+    "rating": 1.2,
+    "favorites": 6,
+    "visits": 6,
+    "difficulty": 4,
+    "terrain": 1,
+    "size": "small",
+    "created": "May 4, 2022",
+    "updated": "June 13, 2022",
+    "coords": "81.8303 33.4350"
+},
+
+{
+    "name": "Orange Shady Footpath",
+    "username": "Jarvis_Hackett",
+    "rating": 3.1,
+    "favorites": 31,
+    "visits": 93,
+    "difficulty": 4,
+    "terrain": 2,
+    "size": "large",
+    "created": "June 20, 2022",
+    "updated": "November 19, 2022",
+    "coords": "-68.5221 -97.7478"
+},
+{
+    "name": "Blue Stream",
+    "username": "Jason.Kautzer80",
+    "rating": 4.1,
+    "favorites": 54,
+    "visits": 432,
+    "dificuldade": 5,
+    "terreno": 3,
+    "tamanho": "médio",
+    "criado": "27 de agosto de 2022",
+    "atualizado": "8 de novembro de 2022",
+    "coords": "-74.4389 146.7820"
+}
+
+]
+
+
+const inputUserName = document.querySelector("#inputUserName")
+const btnSearch = document.querySelector("#btnSearch")
+const res = document.querySelector("#res")
+
+inputUserName.focus()
+
+btnSearch.addEventListener("click", () => {
+    var worked = false
+    users.map((e) => {
+        if (inputUserName.value === e.username) {
+            worked = true
+        }
+        if(worked === true){
+            res.innerHTML = (`O UserName ${inputUserName.value} foi encontrado!`)
+        }else{
+            res.innerHTML = (`O UserName ${inputUserName.value} NÃO foi encontrado!`)
+        }
+    })
+    inputUserName.value =""
+}
+
+)
+
