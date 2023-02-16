@@ -1,12 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Criador de Link de WhatsApp</title>
 </head>
+
 <body>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            margin-top: 40px;
+
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #2ab200;
+            color: black;
+            min-width: 500px;
+            min-height: 300px;
+            box-shadow: 5px 3px 8px;
+            margin-bottom: 20px;
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            max-width: 200px;
+            align-items: center;
+        }
+
+        button {
+            margin: 5px;
+        }
+
+        input {
+            margin: 3px
+        }
+
+        button,
+        input {
+            padding: 5px;
+            border-radius: 10px;
+        }
+
+        #text {
+            width: 350px;
+        }
+
+        p {
+            margin-top: 30px;
+        }
+        img{
+            border-radius: 150px;
+        }
+    </style>
+    <div class="container">
+        <img src="./whatsApp.png" alt="WhatsAppLink">
+        <h1>Crie seu link de WhatsApp</h1>
+        <main>
+            <input id="number" type="tel" placeholder=" (xx)xxxxx-xxxx">
+            <input id="text" type="text" placeholder="Digite a mensagem">
+            <button id="btn">Gerar Link</button><br>
+        </main>
+    </div>
+    <b><a id="res"></a></b>
+
     <script src="script.js"></script>
 </body>
+
 </html>

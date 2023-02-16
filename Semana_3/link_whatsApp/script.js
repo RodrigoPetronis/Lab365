@@ -9,3 +9,15 @@ Relembrando: Para substituir o telefone, modifique o termo "SeuNúmero". Para su
 mensagem, modifique o termo "SuaMensagem" pelo texto que desejar. Como links não permitem 
 inserir espaços, troque-os pelo código "%20" (sem aspas), como no exemplo a 
 seguir: api.whatsapp.com/send?phone=5511012345678&text=Oi%20Devs */
+
+const linkBase = "https://api.whatsapp.com/send?"
+let number = document.querySelector("#number")
+let msg = document.querySelector("#text")
+const res = document.querySelector("#res")
+const btn = document.querySelector("#btn")
+const copy = document.querySelector("#copy")
+
+btn.addEventListener("click", () => {
+  res.innerHTML=`${linkBase}phone=55${number.value}&text=${msg.value}`
+  res.setAttribute(location.href=`${linkBase}phone=55${number.value}&text=${msg.value}`)
+})
