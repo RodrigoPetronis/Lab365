@@ -12,7 +12,7 @@ async function showInformation() {
 
         data.results.forEach(character => {
             const card = document.createElement("div")
-            //card.classList.add("card")
+            card.classList.add("card")
 
             const id = document.createElement("h3")
             const name = document.createElement("h3")
@@ -32,7 +32,7 @@ async function showInformation() {
             card.appendChild(name)
             card.appendChild(status)
             card.appendChild(species)
-            
+
             container.appendChild(card)
         })
 
