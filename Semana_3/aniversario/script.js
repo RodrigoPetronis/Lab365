@@ -7,3 +7,34 @@ const d2 = '2021-11-12';
 const diffInMs = new Date(d2) - new Date(d1)
 const diffInDays = diffInMs / (1000 60 60 * 24);
 console.log(diffInDays) // 38 */
+
+let resposta = document.querySelector('#resposta');
+let resposta1 = document.querySelector('#resposta1');
+
+
+const currentData = '2023/02/15';
+const birthday = '2023/02/20';
+
+const diffInMs = new Date(birthday) - new Date(currentData);
+const diffInDays = diffInMs / (1000 * 60 * 60 * 24);
+
+let interval = setInterval(iniciar, 10000);//para um dia sera 86400
+
+function iniciar() {
+
+    
+    let component = document.createElement("p")
+
+    if (diffInMs == 0) {
+        component.innerText = ("Feliz Aniversário")
+        resposta.appendChild(component)  
+        clearTimeout(interval)  
+    } else {
+        component.innerText =(`Faltam ${diffInDays} dias para o seu aniversário`)
+        resposta1.appendChild(component)      
+    }  
+}
+
+
+
+setInterval(isBirthday(), 2000)
