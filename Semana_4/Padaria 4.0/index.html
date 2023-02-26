@@ -1,0 +1,60 @@
+<!-- O seu Manoel gostou do último aplicativo e agora quer inovar.
+
+Ele quer que você construa a aplicação utilizando orientação a objetos.
+
+1. Construa uma classe chamada CaixaRegistradora
+2. Defina um atributo que armazene vários produtos no estoque contendo os seguintes campos:
+   [{
+   codigoBarra:number;
+   preco:number;
+   nome:string;
+   }]
+3. Defina um método no qual o seu Manoel consiga adicionar novos produtos no estoque. Esse método recebe os mesmos campos do produto, e todos eles são obrigatórios.
+4. Defina um método que inicie o atendimento ao cliente, você deve passar o nome do cliente para iniciar.
+5. Defina um método que receba codigoBarra: number; e quantidade: number; para o seu Manoel conseguir adicionar itens na caixa registradora. \*\*Importante: A aplicação só poderá adicionar itens na caixa, se o código de barra dele existir.
+6. Defina um método que você consiga verificar o valor total da conta do cliente.
+7. Defina um método fecharConta, no qual você passa o dinheiro e ele calcula o troco e zera a caixa registradora. -->
+
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mercado 4.0</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container" >
+        <main class="main" style="display: flex; flex-direction: column; flex-wrap: wrap;" >
+            <span class="adicionar" style="display: flex; flex-direction: column; max-width: 500px; margin-bottom: 50px;" >
+                <h3>Adicionar Produtos no Estoque</h3>
+                <input id="addCodigoBarra" type="text" placeholder="Codigo de Barras">
+                <input id="addPreco" type="number" placeholder="Preço R$">
+                <input id="addProduto" type="text" placeholder="Produto">
+                <input id="addQuantidade" type="number" placeholder="Quantidade">
+                <button id="btnAdicionar">Adicionar no Estoque</button>
+            </span>
+            <div class="caixa" style="display: flex; flex-direction: column; max-width: 500px;">
+                <h4>Dados da Compra</h4>
+                <!-- <input id="nome" type="text" placeholder="Nome do Cliente"> -->
+                <input id="codigoBarras" type="number" placeholder="Codigo de Barras">
+                <input id="quantidade" type="number" placeholder="Quantidade">
+                <button id="btnCaixa">Adicionar á Compra</button>
+            </div>
+            <div class="resultado">
+                <div id="valorTotal">R$ 0,00
+                    <button >Fechar Conta</button>
+                </div>
+            </div>
+
+
+        </main>
+
+    </div>
+
+    <script src="caixaRegistradora.js" type="module"></script>
+</body>
+</html>

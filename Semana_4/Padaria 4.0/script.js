@@ -1,0 +1,2 @@
+import { CaixaRegistradora } from "./caixaRegistradora";
+
