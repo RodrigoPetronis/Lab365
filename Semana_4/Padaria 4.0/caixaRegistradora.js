@@ -14,13 +14,17 @@ const btnAdicionar = document.querySelector("#btnAdicionar")
 const codigoBarra = document.querySelector("#codigoBarras")
 const quantidade = document.querySelector("#quantidade")
 const btnCaixa = document.querySelector("#btnCaixa")
+let caixa = 0
+let totalCaixa = 0
+
+const valorTotal = document.querySelector("#valorTotal")
+
+const fecharConta = document.querySelector("#fecharConta")
 
 export class CaixaRegistradora {
-    totalCaixa = 0;
-
 
     estoque = [{
-      
+
     }]
 
     constructor(codigoBarra, preco, nome, quantidade) {
@@ -61,18 +65,24 @@ Esse método recebe os mesmos campos do produto, e todos eles são obrigatórios
     Importante: A aplicação só poderá adicionar itens na caixa, se o código de barra dele existir. */
 
     leitor(codigoBarra, quantidade) {
-        this.estoque.forEach(e => {
-            if (estoque.codigoBarra === e) {
-                console.log("Teste")
-                return caixa = estoque.preco * quantidade
+        
+        for (let i = 0; i < produtos.estoque.length; i++) {
+            
+            if (produtos.estoque[i].codigoBarra == codigoBarra) {
+                caixa = produtos.estoque[i].preco * quantidade
+                totalCaixa+=caixa
+                return caixa
             }
-        })
+
+
+        }
     }
 
     /* 6. Defina um método que você consiga verificar o valor total da conta do cliente. */
 
     valorTotal() {
-        totalCaixa += caixa
+        
+        return totalCaixa
     }
 
     /* 7. Defina um método fecharConta, no qual você passa o dinheiro e ele calcula o troco e zera a caixa registradora.*/
@@ -90,14 +100,26 @@ Esse método recebe os mesmos campos do produto, e todos eles são obrigatórios
 
 }
 
-let estoque = new CaixaRegistradora()
+let produtos = new CaixaRegistradora()
 
 btnAdicionar.addEventListener("click", () => {
-    estoque.adicionarProdutos(addCodigoBarra.value, addPreco.value, addProduto.value, addQuantidade.value)
+    produtos.adicionarProdutos(addCodigoBarra.value, addPreco.value, addProduto.value, addQuantidade.value)
 })
-console.log(estoque)
+console.log(produtos)
 
 btnCaixa.addEventListener("click", () => {
-    estoque.leitor(codigoBarra.value, quantidade.value)
-    
+   console.log(produtos.leitor(codigoBarra.value, quantidade.value))
+  
+   valorTotal.innerHTML = `R$${produtos.valorTotal()}`
+})
+
+fecharConta.addEventListener("click", ()=>{
+   let fechandoConta = prompt(`A sua conta deu um total de R$${produtos.valorTotal()}  Quanto vai dar de dinheiro?`)
+   let troco = fechandoConta - produtos.valorTotal()
+   if(troco > 0){
+    alert(` O troco vai ser de ${troco}`)
+   }else{
+    alert(`Dinheiro não é suficiente`)
+   }
+   
 })
