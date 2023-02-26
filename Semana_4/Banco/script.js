@@ -9,13 +9,12 @@ o método deposito adiciona valor ao saldo (o usuário deve passar a senha, e el
 Por fim, instancie um objeto chamado contaCorrente e teste as operações. */
 
 class Conta {
-    saldo
-    senha
-
-
+    saldo 
+    #senha 
+    valor
     constructor(saldo, senha) {
         this.saldo = saldo
-        this.senha = senha
+        this.#senha = senha
     }
 
     getSaldo() {
@@ -23,31 +22,35 @@ class Conta {
     }
 
     deposito(quantia, senha) {
-        if (senha == this.senha) {
-            this.saldo += quantia.value
-            console.log(this.saldo)
+        
+        if (senha === this.#senha) {
+                this.valor = Number(quantia)
+                this.saldo += this.valor
+                mostrarTotal()
         } else {
             alert("Senha Incorreta!")
         }
     }
 
     retirada(quantia, senha) {
-        if (senha == this.senha) {
-            this.saldo -= quantia.value
-            
+        this.valor = Number(quantia)
+        if (senha === this.#senha) {
+            this.saldo -= valor
+            mostrarTotal()
         } else {
             alert("Senha Incorreta!")
         }
     }
 }
 
+
 //Campo para adicionar quantia
 let quantia = document.querySelector("#quantia")
+let quantiaValue = Number(quantia.value)
 
 //Iniciando o sistema com saldo e senha pré-definidos
 let saldo = 0
-let senha = 1234
-
+let senha = "1234"
 //intanciando a classe
 const conta = new Conta(saldo, senha)
 
@@ -63,10 +66,11 @@ deposito.addEventListener("click", () => {
 let saque = document.querySelector("#saque")
 saque.addEventListener("click", () => {
     let password = prompt("Digite a senha para confirmar o saque")
-    conta.retirada(quantia.value, password)
-
+    conta.retirada(quantiaValue, password)
 })
 
 //Mostrando o saldo em tela
-let res = document.querySelector("#res")
-res.innerHTML = `Saldo Total R$${conta.saldo}`
+function mostrarTotal(){
+    let res = document.querySelector("#res")
+    res.innerHTML = `Saldo Total R$${conta.getSaldo()}`
+}
