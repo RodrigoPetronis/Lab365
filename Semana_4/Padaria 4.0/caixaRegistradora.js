@@ -65,12 +65,12 @@ Esse método recebe os mesmos campos do produto, e todos eles são obrigatórios
     Importante: A aplicação só poderá adicionar itens na caixa, se o código de barra dele existir. */
 
     leitor(codigoBarra, quantidade) {
-        
+
         for (let i = 0; i < produtos.estoque.length; i++) {
-            
+
             if (produtos.estoque[i].codigoBarra == codigoBarra) {
                 caixa = produtos.estoque[i].preco * quantidade
-                totalCaixa+=caixa
+                totalCaixa += caixa
                 return caixa
             }
 
@@ -81,19 +81,19 @@ Esse método recebe os mesmos campos do produto, e todos eles são obrigatórios
     /* 6. Defina um método que você consiga verificar o valor total da conta do cliente. */
 
     valorTotal() {
-        
+
         return totalCaixa
     }
 
     /* 7. Defina um método fecharConta, no qual você passa o dinheiro e ele calcula o troco e zera a caixa registradora.*/
 
     fecharConta() {
-        pagamento = prompt(`O total foi R$ ${this.totalCaixa}. O total recebido do cliente foi quanto?:  `)
-
-        if (pagamento >= this.totalCaixa) {
-            return (`O troco será de ${this.pagamento - this.totalCaixa}`)
+        let fechandoConta = prompt(`A sua conta deu um total de R$${this.valorTotal()}  Quanto vai dar de dinheiro?`)
+        let troco = fechandoConta - this.valorTotal()
+        if (troco > 0) {
+            alert(` O troco vai ser de R$${troco}`)
         } else {
-            return (` O total recebido não é o suficiente para pagar a conta`)
+            alert(`Dinheiro não é suficiente`)
         }
 
     }
@@ -105,21 +105,10 @@ let produtos = new CaixaRegistradora()
 btnAdicionar.addEventListener("click", () => {
     produtos.adicionarProdutos(addCodigoBarra.value, addPreco.value, addProduto.value, addQuantidade.value)
 })
-console.log(produtos)
+
 
 btnCaixa.addEventListener("click", () => {
-   console.log(produtos.leitor(codigoBarra.value, quantidade.value))
-  
-   valorTotal.innerHTML = `R$${produtos.valorTotal()}`
+    valorTotal.innerHTML = `R$${produtos.valorTotal()}`
 })
 
-fecharConta.addEventListener("click", ()=>{
-   let fechandoConta = prompt(`A sua conta deu um total de R$${produtos.valorTotal()}  Quanto vai dar de dinheiro?`)
-   let troco = fechandoConta - produtos.valorTotal()
-   if(troco > 0){
-    alert(` O troco vai ser de ${troco}`)
-   }else{
-    alert(`Dinheiro não é suficiente`)
-   }
-   
-})
+fecharConta.addEventListener("click", () => produtos.fecharConta())

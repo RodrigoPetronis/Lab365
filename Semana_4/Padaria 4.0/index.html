@@ -19,6 +19,7 @@ Ele quer que você construa a aplicação utilizando orientação a objetos.
 
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -26,10 +27,13 @@ Ele quer que você construa a aplicação utilizando orientação a objetos.
     <title>Mercado 4.0</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <div class="container" >
-        <main class="main" style="display: flex; flex-direction: column; flex-wrap: wrap;" >
-            <span class="adicionar" style="display: flex; flex-direction: column; max-width: 500px; margin-bottom: 50px;" >
+
+<body style="background-color: gray;">
+    <div class="container" style="display: flex; justify-content: center; margin-top: 20px;">
+        <main class="main" style="display: flex; flex-direction: column; align-items: center; background-color: brown; max-width: 500px; padding: 15px;">
+            <h1>Padaria 4.0 do Seu Manoel</h1>
+            <span class="adicionar"
+                style="display: flex; flex-direction: column; max-width: 500px; margin-bottom: 50px;">
                 <h3>Adicionar Produtos no Estoque</h3>
                 <input id="addCodigoBarra" type="text" placeholder="Codigo de Barras">
                 <input id="addPreco" type="number" placeholder="Preço R$">
@@ -47,7 +51,7 @@ Ele quer que você construa a aplicação utilizando orientação a objetos.
             <div class="resultado">
                 <div>
                     <p id="valorTotal">Valor Total: R$ 0,00</p>
-                    <button id="fecharConta" >Fechar Conta</button>
+                    <button id="fecharConta">Fechar Conta</button>
                 </div>
             </div>
 
@@ -56,6 +60,7 @@ Ele quer que você construa a aplicação utilizando orientação a objetos.
 
     </div>
 
-    <script src="caixaRegistradora.js" type="module"></script>
+    <script type="module" src="caixaRegistradora.js"></script>
 </body>
+
 </html>
