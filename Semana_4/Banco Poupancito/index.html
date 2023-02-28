@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banco</title>
+</head>
+<style>
+    body{
+        background-color: rgb(161, 161, 221);
+    }
+    .container{
+        border: 3px solid black;
+        padding: 8px; 
+        display: flex;  
+        flex-direction: column;  
+        align-items: center; 
+        justify-content: center; 
+        max-width: 600px; 
+        min-height: 200px;
+    }
+    button{
+        margin: 3px;
+        border-radius: 10px;
+        background-color: rgb(131, 218, 221);
+    }
+    .btn{
+        display: flex;
+        flex-direction: column;
+        margin-top: 20px;
+        
+    }
+    
+</style>
+<body>
+    <div class="container">
+        
+                <h3> <i>Banco Poupancito</i> </h3>
+                <input id="quantia" type="number" placeholder="Valor">
+                <div class="btn">
+                   
+                    <button id="deposito">Depositar</button>
+                    <button id="saque">Sacar</button>
+                    <button id="atualizarJuros">Atualizar Juros</button>
+                    <button id="atualizarJurosPremium">Atualizar Juros Premium</button>
+                </div>
+                
+            </div>
+            <div>
+
+                <p id="res">R$0</p>
+          
+    </div>
+
+    <script type="module" src="script.js"></script>
+</body>
+
+</html>
