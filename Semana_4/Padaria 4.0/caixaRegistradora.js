@@ -22,7 +22,7 @@ const valorTotal = document.querySelector("#valorTotal")
 const fecharConta = document.querySelector("#fecharConta")
 
 export class CaixaRegistradora {
-
+  
     estoque = [{
 
     }]
@@ -57,6 +57,7 @@ Esse método recebe os mesmos campos do produto, e todos eles são obrigatórios
     /* 4. Defina um método que inicie o atendimento ao cliente, você deve passar o nome do cliente para iniciar. */
 
     nomeCliente() {
+        let nomeCliente
         nomeCliente = prompt("Qual o nome do cliente? ")
     }
 
@@ -65,23 +66,19 @@ Esse método recebe os mesmos campos do produto, e todos eles são obrigatórios
     Importante: A aplicação só poderá adicionar itens na caixa, se o código de barra dele existir. */
 
     leitor(codigoBarra, quantidade) {
-
-        for (let i = 0; i < produtos.estoque.length; i++) {
-
-            if (produtos.estoque[i].codigoBarra == codigoBarra) {
-                caixa = produtos.estoque[i].preco * quantidade
+        this.nomeCliente()
+        this.estoque.forEach((e) => {
+            if (e.codigoBarra == codigoBarra.value) {
+                caixa = e.preco * quantidade.value
                 totalCaixa += caixa
                 return caixa
             }
-
-
-        }
+        })
     }
 
     /* 6. Defina um método que você consiga verificar o valor total da conta do cliente. */
 
     valorTotal() {
-
         return totalCaixa
     }
 
@@ -95,19 +92,19 @@ Esse método recebe os mesmos campos do produto, e todos eles são obrigatórios
         } else {
             alert(`Dinheiro não é suficiente`)
         }
-
     }
-
 }
 
 let produtos = new CaixaRegistradora()
 
+//Adicionando no estoque
 btnAdicionar.addEventListener("click", () => {
     produtos.adicionarProdutos(addCodigoBarra.value, addPreco.value, addProduto.value, addQuantidade.value)
 })
 
-
+//Passando no caixa
 btnCaixa.addEventListener("click", () => {
+    produtos.leitor(codigoBarra, quantidade)
     valorTotal.innerHTML = `R$${produtos.valorTotal()}`
 })
 
